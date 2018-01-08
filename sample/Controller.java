@@ -84,7 +84,7 @@ public class Controller {
 
     private void writeDiskButtonAction(){
         try {
-            DiskWriter.makeISO(files);
+            DiskWriter.makeISO("test1", files);
         } catch (Exception e) {
             e.printStackTrace();
         }

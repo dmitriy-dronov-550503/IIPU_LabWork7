@@ -15,11 +15,11 @@ import java.util.ArrayList;
 
 public class DiskWriter {
 
-    public static void makeISO(ObservableList<FileInfo> fileInfos) throws Exception{
+    public static void makeISO(String volumeID, ObservableList<FileInfo> fileInfos) throws Exception{
+        if(volumeID.isEmpty()) volumeID="IIPU_LabWork7";
         System.out.println("Start");
-
         // Output file
-        File outfile = new File("ISOTest.iso");
+        File outfile = new File("diskImage.iso");
 
         // Directory hierarchy, starting from the root
         ISO9660RootDirectory.MOVED_DIRECTORIES_STORE_NAME = "rr_moved";
@@ -40,9 +40,9 @@ public class DiskWriter {
         iso9660Config.allowASCII(false);
         iso9660Config.setInterchangeLevel(1);
         iso9660Config.restrictDirDepthTo8(true);
-        iso9660Config.setPublisher("Name Nickname");
-        iso9660Config.setVolumeID("ISO Test Jiic");
-        iso9660Config.setDataPreparer("Name Nickname");
+        iso9660Config.setPublisher("BSUIR");
+        iso9660Config.setVolumeID("IIPU_LabWork7");
+        iso9660Config.setDataPreparer("BSUIR");
 
         //iso9660Config.setCopyrightFile(new File("Copyright.txt"));
         iso9660Config.forceDotDelimiter(true);
@@ -55,9 +55,9 @@ public class DiskWriter {
         // Joliet support
         System.out.println("Joliet support");
         jolietConfig = new JolietConfig();
-        jolietConfig.setPublisher("Test 2");
-        jolietConfig.setVolumeID("Joliet Test");
-        jolietConfig.setDataPreparer("Jens Hatlak");
+        jolietConfig.setPublisher("BSUIR");
+        jolietConfig.setVolumeID("IIPU_LabWork7");
+        jolietConfig.setDataPreparer("BSUIR");
         //jolietConfig.setCopyrightFile(new File("Copyright.txt"));
         jolietConfig.forceDotDelimiter(true);
 
