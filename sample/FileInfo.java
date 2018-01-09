@@ -1,9 +1,10 @@
 package sample;
 
 public class FileInfo {
-    private String name, size, path;
+    private String name, path;
+    private long size;
 
-    public FileInfo(String name, String size, String path) {
+    public FileInfo(String name, long size, String path) {
         this.name = name;
         this.size = size;
         this.path = path;
@@ -17,11 +18,15 @@ public class FileInfo {
         this.name = name;
     }
 
-    public String getSize() {
+    public long getSize() {
         return size;
     }
 
-    public void setSize(String size) {
+    public String getSizeString(){
+        return SizeToString.convert(size);
+    }
+
+    public void setSize(long size) {
         this.size = size;
     }
 
